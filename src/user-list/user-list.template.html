@@ -1,0 +1,39 @@
+<label class="label">
+    Search
+    <input class="search" ng-model="$ctrl.query">
+</label>
+
+<div class="user_list">
+    <div class="user">
+        <!--<div class="user_entry small">-->
+            <a class="user_entry small" href="#!/addUser">Add User <i class="fas fa-plus-square"></i>
+            </a>
+        <!--</div>-->
+        <div class="user_entry small">
+            Name
+        </div>
+        <!--<div class="user_entry">-->
+            <!--Password-->
+        <!--</div>-->
+        <div class="user_entry wide">
+            Actions
+        </div>
+    </div>
+    <div class="user" ng-repeat="user in $ctrl.users | filter:$ctrl.query">
+        <a class="user_entry small" id="view_user" href="#!/users/{{user.id}}">
+            <i class="fas fa-eye"></i>
+        </a>
+        <div class="user_entry small">
+            {{user.name}}
+        </div>
+        <!--<div class="user_entry">-->
+            <!--{{user.password}}-->
+        <!--</div>-->
+        <a class="user_entry small" href="#!/users/{{user.id}}?edit=true">
+            <div>Edit <i class="fas fa-edit"></i></div>
+        </a>
+        <a class="user_entry small pointer" ng-click="$ctrl.deleteUser(user.id)">
+            <div>Delete <i class="fas fa-minus-square"></i></div>
+        </a>
+    </div>
+</div>

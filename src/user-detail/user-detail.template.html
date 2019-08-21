@@ -1,0 +1,21 @@
+<a id="home_button" href="#!/users">Users List <i class="fas fa-home"></i>
+</a>
+<div class="user_detail">
+    <h1 class="user_name">User: <span>{{$ctrl.user.name}}</span></h1>
+    <h1 class="user_password">Password: <span>{{$ctrl.user.password}}</span></h1>
+
+    <div class="user_edit" ng-if="$ctrl.edit">
+        <label>
+            Name
+            <input ng-model="$ctrl.user.name">
+        </label>
+        <!--<br>-->
+        <label>
+            Password
+            <input ng-model="$ctrl.user.password">
+        </label>
+        <div class="user_edit_button" ng-click="$ctrl.editUser()">
+            Edit
+        </div>
+    </div>
+</div>
