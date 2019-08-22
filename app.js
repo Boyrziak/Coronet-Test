@@ -46,6 +46,16 @@ mongoClient.connect((err, client) => {
     app.locals.collection = client.db("coronet_users").collection('users');
 });
 
+router.get(/(\w*)\.(\w*)/g, (req, res)=>{
+    console.log(req.path);
+    let regExp = /(\w*)\.(\w*)/g;
+    let requestExt = regExp.exec(req.path);
+    if (requestExt){
+        console.log(requestExt);
+        res.sendFile(path.join(__dirname + req.path));
+    }
+});
+
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/src/index.html'));
 });
