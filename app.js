@@ -6,7 +6,6 @@ const
     path = require('path'),
     multer = require('multer'),
     MongoClient = require('mongodb').MongoClient,
-    sharp = require('sharp'),
     app = express(bodyParser.json()),
     http = require('http').createServer(httpApp),
     io = require('socket.io')(http),
